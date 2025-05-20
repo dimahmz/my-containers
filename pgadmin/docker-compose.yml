@@ -1,0 +1,18 @@
+version: '3'
+services:
+  my_pgadmin:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: my-pgadmin
+    container_name: my-pgadmin-container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    restart: on-failure
+volumes:
+  pgadmin-data:

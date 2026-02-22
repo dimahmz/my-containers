@@ -1,0 +1,11 @@
+services:
+  phpmyadmin:
+    image: hamz101/myphpmyadmin:latest
+    container_name: myphpmyadmin  
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "9099:80"
